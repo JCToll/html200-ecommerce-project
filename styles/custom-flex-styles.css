@@ -24,10 +24,12 @@
 	background: #663399; 
 	color: white; 
   
+/*
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
+*/
   display: flex;
   
   flex-flow: row wrap;
@@ -43,14 +45,16 @@
 }
 
 .navbar a:hover {
-  background: darken(deepskyblue, 2%);
+  background: darken(darkblue, 2%);
 }
 /* How do I make the wide view - not wrap? */
 @media all and (max-width: 800px) {
   .navbar {
 /*  I can't get this to work:	 list-style: none;*/
+/*
 		-webkit-flex-direction: row;
 		-webkit-flex-wrap: nowrap;
+*/
     flex-direction: row;
 		flex-wrap: nowrap;
     padding: 0;
@@ -60,7 +64,6 @@
 
 @media all and (max-width: 600px) {
   .navbar {
-    -webkit-flex-flow: column wrap;
     flex-flow: column wrap;
     padding: 0;
   }
