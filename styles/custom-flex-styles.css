@@ -1,0 +1,137 @@
+
+.wrapper {
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.header {
+  background: deepskyblue;
+}
+
+
+/* ========== navbar style ============ */
+.navbar {
+  list-style: none;
+  margin: 0; 
+  
+	background: #663399; 
+	color: white; 
+  
+/*
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+*/
+  display: flex;
+  
+  flex-flow: row wrap;
+  justify-content: space-around ;
+/*	if prefer to end justify: justify-content: flex-end;*/
+}
+
+.navbar a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+.navbar a:hover {
+  background: darken(darkblue, 2%);
+}
+/* How do I make the wide view - not wrap? */
+@media all and (max-width: 800px) {
+  .navbar {
+/*  I can't get this to work:	 list-style: none;*/
+/*
+		-webkit-flex-direction: row;
+		-webkit-flex-wrap: nowrap;
+*/
+    flex-direction: row;
+		flex-wrap: nowrap;
+    padding: 0;
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .navbar {
+    flex-flow: column wrap;
+    padding: 0;
+  }
+  
+  .navbar a { 
+    text-align: center; 
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3); 
+    border-bottom: 1px solid rgba(0,0,0,0.1); 
+  }
+
+  
+  .navbar li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+.footer {
+  background: lightgreen;
+}
+
+.main {
+  text-align: left;
+  background: lightgray;
+}
+
+.aside {
+  background: gold;
+}
+
+/*User special media code to determine how to change
+  flex-layout based on width size (<600 px, >=800 px*/
+@media all and (min-width: 600px) {
+  .aside { flex: 1 auto; }
+}
+
+/*Note: aside pops up after nav bar on smaller screens so that there
+   is 1 column of elements */
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+	.navbar {order:1;}
+  .aside { order: 2; } 
+  .main    { order: 3; }
+  .footer  { order: 4; }
+}
+
+body {
+  padding: 2em; 
+}
+
+
+
+/* your styles here */
+.parent {
+  display: flex;
+  height: 600px; /* Or whatever */
+}
+
+.child {
+  width: 100px;  /* Or whatever */
+  height: 100px; /* Or whatever */
+  margin: auto;  /* Magic! */
+}
+.flex-container {
+  /* first create a flex layout context */
+  display: flex;
+/*	define flow direction (row) and define to wrap */
+	flex-flow: row wrap; 
+	  /*  define how is distributed the remaining space */
+  justify-content: space-around;
+}
